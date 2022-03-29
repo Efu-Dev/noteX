@@ -6,7 +6,7 @@ import helmet from 'helmet'; //npm i helmet
 import jwt from 'jsonwebtoken'; //npm i jsonwebtoken
 import dotenv from 'dotenv'; //npm i dotenv
 import depthLimit from 'graphql-depth-limit'; //npm i graphql-depth-limit
-import {createComplexityLimitRule, CreateComplexityLimitRule} from 'graphql-validation-complexity'; //npm i graphql-validation-complexity'
+import {createComplexityLimitRule} from 'graphql-validation-complexity'; //npm i graphql-validation-complexity'
 import typeDefs  from './schema.js';
 import resolvers from './resolvers/index.js';
 import models from './models/index.js';
@@ -17,7 +17,6 @@ dotenv.config();
 const getUser = (req) => {
     const token = req.headers.authorization;
     if(token){
-        console.log("TOKEN: " + token)
         try{            
             const user =  jwt.verify(token, process.env.JWT_SECRET);
             return user;

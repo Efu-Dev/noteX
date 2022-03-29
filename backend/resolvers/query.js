@@ -7,6 +7,7 @@ const Query = {
     users: async(parent, args, {models}) => await models.User.find({}),
     me: async(parent, args, {models, user}) => await models.User.findById(user.id),
     noteFeed: async(parent, {cursor}, {models}) => {
+        console.log("REQ received");
         const limit = 4;
         let hasNextPage = false;
         const cursorQuery = cursor ? {_id: {$lt: cursor}} : {};
@@ -14,9 +15,9 @@ const Query = {
 
         if(notes.length > limit){
             hasNextPage = true;
-            notes = notes.slice(0, limit - 1);
+            notes = notes.slice(0, limit);
         }
-
+              
         const newCursor = notes[notes.length - 1]._id;
 
         return {notes, cursor: newCursor, hasNextPage};

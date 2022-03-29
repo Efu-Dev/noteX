@@ -16,7 +16,7 @@ const typeDefs = gql`
     id: ID!
     title: String!
     content: String!
-    author: String!
+    author: User
     createdAt: DateTime!
     updatedAt: DateTime!
     favoriteCount: Int!
@@ -36,7 +36,7 @@ const typeDefs = gql`
    notes: [Note]!
    cursor: String!
    hasNextPage: Boolean!
-  }
+ }
 
  type Mutation {
     newNote(title: String!, content: String!): Note!
