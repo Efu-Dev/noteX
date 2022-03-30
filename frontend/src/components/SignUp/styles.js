@@ -7,11 +7,17 @@ export default makeStyles(() => ({
       flexDirection: 'column',
       display: 'flex',
       alignItems: 'space-between',
-      background: '#000',
-      color: 'white',
+      background: '#888',
+      color: 'black',
       border: '2px solid white'  
+    },
+    header: {
+        color: '#FFF'
+    },
+    input: {
+        margin: '10px 0 10px 0'
     },
     button: {
       marginTop: '10px'
     }
-}));
+  }));

@@ -20,7 +20,7 @@ export const GET_NOTES = gql`
     }
   }`;
 
-  export const GET_NOTE = gql`
+export const GET_NOTE = gql`
   query NoteFeed($id: ID!){
     note(id: $id){
         id
@@ -30,3 +30,9 @@ export const GET_NOTES = gql`
         favoriteCount
     }
   }`;
+
+export const SIGNUP_USER = gql`
+  mutation signUp($email: String!, $username: String!, $password: String!) {
+    signUp(email: $email, username: $username, password: $password)
+  }
+`;
